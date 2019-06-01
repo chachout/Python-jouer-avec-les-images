@@ -1,0 +1,36 @@
+from PIL import Image
+import numpy as np
+import os as os
+import matplotlib.pyplot as plt
+import matplotlib.image as im
+os.chdir('C:\\Users\\pierre\\Desktop')
+imm=Image.open("IMAG0449_magenta.jpg")
+tabm=np.array(imm)
+imj=Image.open("IMAG0449_jaune.jpg")
+tabj=np.array(imj)
+imbe=Image.open("IMAG0449_bleu.jpg")
+tabbe=np.array(imbe)
+imba=Image.open("IMAG0449_blanc.jpg")
+tabba=np.array(imba)
+imc=Image.open("IMAG0449_cyan.jpg")
+tabc=np.array(imc)
+imr=Image.open("IMAG0449_rouge.jpg")
+tabr=np.array(imr)
+imn=Image.open("IMAG0449_noir.jpg")
+tabn=np.array(imn)
+imv=Image.open("IMAG0449_vert.jpg")
+tabv=np.array(imv)
+img=Image.open("IMAG0449.jpg")
+tab=np.array(img)
+tab1=np.append(tabv,tab,1)
+tab10=np.append(tab1,tabj,1)
+tab2=np.append(tabc,tabn,1)
+tab20=np.append(tab2,tabbe,1)
+tab3=np.append(tabr,tabba,1)
+tab30=np.append(tab3,tabm,1)
+tab6=np.append(tab10,tab20,0)
+tab66=np.append(tab6,tab30,0)
+final=Image.fromarray(tab66)
+final.show()
+final.save("IMAG0449_andyW.jpg")
+
